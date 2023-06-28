@@ -9,7 +9,7 @@ page 60130 "Control Addin Card"
     {
         area(content)
         {
-            usercontrol(ShowPopUp; "Show Modal PopUp")
+            usercontrol(ShowModalPopUp; "Show Modal PopUp")
             {
                 ApplicationArea = All;
                 trigger Ready()
@@ -42,7 +42,7 @@ page 60130 "Control Addin Card"
                 trigger OnAction()
                 begin
                     // CurrPage.ShowPopUp.OpenPopUpUrl();
-                    CurrPage.ShowPopUp.PopupWindow('https://en-ae.namshi.com/premium-store/', '', 700, 700);
+                    CurrPage.ShowModalPopUp.PopupWindow('https://en-ae.namshi.com/premium-store/', '', 700, 700);
                 end;
             }
         }
