@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "Tamanna - Launch",
+            "breakOnError": true,
+            "launchBrowser": true,
+            "tenant": "4fa9c138-d3e7-4bc3-8bab-a74bde6b7584",
+            "environmentType": "Sandbox",
+            "environmentName": "Sandbox2",
+            "schemaUpdateMode": "Synchronize"
+        }
+    ]
+}
