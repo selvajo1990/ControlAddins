@@ -9,7 +9,7 @@ page 60130 "Control Addin Card"
     {
         area(content)
         {
-            usercontrol(ShowPopUp; ShowPopUp)
+            usercontrol(ShowPopUp; "Show Modal PopUp")
             {
                 ApplicationArea = All;
                 trigger Ready()

@@ -1,4 +1,4 @@
-controladdin "ShowPopUp"
+controladdin "Show Modal PopUp"
 {
     RequestedHeight = 1;
     RequestedWidth = 1;
@@ -8,7 +8,7 @@ controladdin "ShowPopUp"
     MaximumWidth = 1;
     VerticalShrink = true;
     HorizontalShrink = true;
-    Scripts = '.\res\script1.js';
+    Scripts = '.\res\JsHelper.js';
     StartupScript = '.\res\startupScript.js';
 
     procedure OpenPopUpUrl();
