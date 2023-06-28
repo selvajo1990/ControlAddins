@@ -1,11 +1,11 @@
 controladdin "Show Modal PopUp"
 {
-    RequestedHeight = 1;
-    RequestedWidth = 1;
-    MinimumHeight = 1;
-    MaximumHeight = 1;
-    MinimumWidth = 1;
-    MaximumWidth = 1;
+    RequestedHeight = 400;
+    RequestedWidth = 400;
+    MinimumHeight = 400;
+    MaximumHeight = 400;
+    MinimumWidth = 400;
+    MaximumWidth = 400;
     VerticalShrink = true;
     HorizontalShrink = true;
     Scripts = '.\res\JsHelper.js';
@@ -13,5 +13,6 @@ controladdin "Show Modal PopUp"
 
     procedure OpenPopUpUrl();
     procedure PopupWindow(url: Text; title: Text; width: Decimal; height: Decimal);
-    event Ready();
+    procedure RenderHtml(HtmlTextP: Text);
+    event IsReady();
 }

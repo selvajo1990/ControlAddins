@@ -1,1 +1,2 @@
-Microsoft.Dynamics.NAV.InvokeExtensibilityMethod("Ready", "");
+ControlAddinObject = document.getElementById("controlAddIn");
+Microsoft.Dynamics.NAV.InvokeExtensibilityMethod("IsReady", "");

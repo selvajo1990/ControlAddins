@@ -12,17 +12,26 @@ page 60130 "Control Addin Card"
             usercontrol(ShowModalPopUp; "Show Modal PopUp")
             {
                 ApplicationArea = All;
-                trigger Ready()
+                trigger IsReady()
                 begin
                 end;
             }
             group(General)
             {
                 Caption = 'General';
-
-                field(Name; Rec.Name)
+                field(InputTextF; InputText)
                 {
-                    ToolTip = 'Specifies the customer''s name.';
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the InputText';
+                    Caption = 'Enter HTML';
+                    MultiLine = true;
+                    trigger OnValidate()
+                    begin
+                        if InputText = '' then
+                            Error('Must have a value');
+
+                        CurrPage.ShowModalPopUp.RenderHtml(InputText);
+                    end;
                 }
             }
         }
@@ -45,6 +54,24 @@ page 60130 "Control Addin Card"
                     CurrPage.ShowModalPopUp.PopupWindow('https://en-ae.namshi.com/premium-store/', '', 700, 700);
                 end;
             }
+            // action("Render HTML")
+            // {
+            //     Image = Registered;
+            //     ToolTip = 'Executes the Render HTML action.';
+            //     Promoted = true;
+            //     PromotedCategory = Process;
+            //     PromotedIsBig = true;
+            //     PromotedOnly = true;
+            //     trigger OnAction()
+            //     begin
+            //         if InputText = '' then
+            //             Error('Must have a value');
+
+            //         CurrPage.ShowModalPopUp.RenderHtml(InputText);
+            //     end;
+            // }
         }
     }
+    var
+        InputText: Text;
 }
