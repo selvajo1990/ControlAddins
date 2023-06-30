@@ -9,13 +9,6 @@ page 60130 "Control Addin Card"
     {
         area(content)
         {
-            usercontrol(ShowModalPopUp; "Show Modal PopUp")
-            {
-                ApplicationArea = All;
-                trigger IsReady()
-                begin
-                end;
-            }
             group(General)
             {
                 Caption = 'General';
@@ -32,6 +25,23 @@ page 60130 "Control Addin Card"
 
                         CurrPage.ShowModalPopUp.RenderHtml(InputText);
                     end;
+                }
+            }
+            group("Render HTML")
+            {
+                usercontrol(ShowModalPopUp; "Show Modal PopUp")
+                {
+                    ApplicationArea = All;
+                    trigger IsReady()
+                    begin
+                    end;
+                }
+            }
+            group("Web View")
+            {
+                usercontrol(WebViewer; "Microsoft.Dynamics.Nav.Client.WebPageViewer")
+                {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -54,22 +64,40 @@ page 60130 "Control Addin Card"
                     CurrPage.ShowModalPopUp.PopupWindow('https://en-ae.namshi.com/premium-store/', '', 700, 700);
                 end;
             }
-            // action("Render HTML")
-            // {
-            //     Image = Registered;
-            //     ToolTip = 'Executes the Render HTML action.';
-            //     Promoted = true;
-            //     PromotedCategory = Process;
-            //     PromotedIsBig = true;
-            //     PromotedOnly = true;
-            //     trigger OnAction()
-            //     begin
-            //         if InputText = '' then
-            //             Error('Must have a value');
+            action("Navigate to WEB")
+            {
+                Image = Navigate;
+                ToolTip = 'Executes the Navigate to WEB action.';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                begin
+                    if InputText = '' then
+                        Error('InputText must have a value');
+                    CurrPage.WebViewer.Navigate(InputText);
+                end;
+            }
+            action("Open Modal")
+            {
+                Image = MoveNegativeLines;
+                ToolTip = 'Executes the Open Modal action.';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    ControlAddinCard2: Page "Control Addin Card 2";
+                begin
+                    if InputText = '' then
+                        Error('InputText must have a value');
 
-            //         CurrPage.ShowModalPopUp.RenderHtml(InputText);
-            //     end;
-            // }
+                    ControlAddinCard2.SetUrl(InputText);
+                    ControlAddinCard2.RunModal();
+                end;
+            }
         }
     }
     var

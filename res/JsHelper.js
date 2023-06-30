@@ -1,5 +1,6 @@
 function OpenPopUpUrl() {
     window.open("https://en-ae.namshi.com/women/", "popupWindow", "width=500,height=500");
+    window.focus();
 }
 function PopupWindow(url, title, w, h) {
     var left = (screen.width / 2) - (w / 2);
@@ -9,3 +10,21 @@ function PopupWindow(url, title, w, h) {
 function RenderHtml(HtmlTextP) {
     ControlAddinObject.insertAdjacentHTML('beforeend', HtmlTextP);
 }
+$(document).ready(function () {
+    $(".test").click(function () {
+        $("#thedialog").attr('src', $(this).attr("href"));
+        $("#somediv").dialog({
+            width: 400,
+            height: 450,
+            modal: true,
+            close: function () {
+                $("#thedialog").attr('src', "about:blank");
+            }
+        });
+        return false;
+    });
+});
+
+jQuery(document).ready(function (e) {
+    jQuery('#mymodal').trigger('click');
+});
