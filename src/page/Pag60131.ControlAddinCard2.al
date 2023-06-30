@@ -3,7 +3,8 @@ page 60131 "Control Addin Card 2"
     ApplicationArea = All;
     Caption = 'Control Addin';
     PageType = Card;
-    SourceTable = Customer;
+    SourceTableTemporary = true;
+    SourceTable = Integer;
 
     layout
     {
